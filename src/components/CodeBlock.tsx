@@ -20,22 +20,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   copiedStates,
   onCopy 
 }) => {
-  const highlightCode = (code: string, lang: string) => {
-    // Simple syntax highlighting for bash and JSON
-    if (lang === 'bash') {
-      return code
-        .replace(/(#.*$)/gm, '<span class="text-green-400">$1</span>')
-        .replace(/^(\w+)/gm, '<span class="text-blue-400">$1</span>')
-        .replace(/(".*?")/g, '<span class="text-yellow-400">$1</span>');
-    } else if (lang === 'json') {
-      return code
-        .replace(/(".*?")\s*:/g, '<span class="text-blue-400">$1</span>:')
-        .replace(/:\s*(".*?")/g, ': <span class="text-green-400">$1</span>')
-        .replace(/\/\/.*$/gm, '<span class="text-gray-500">$&</span>');
-    }
-    return code;
-  };
-
   return (
     <div className="relative">
       {filename && (
@@ -45,17 +29,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       )}
       <div className="bg-black/70 backdrop-blur-sm p-4 rounded-lg relative overflow-x-auto">
         <pre className="text-sm">
-          <code 
-            dangerouslySetInnerHTML={{ 
-              __html: highlightCode(code, language) 
-            }}
-            className="text-green-400 whitespace-pre-wrap"
-          />
+          <code className="text-primary whitespace-pre-wrap">
+            {code}
+          </code>
         </pre>
         <Button
           size="sm"
           variant="outline"
-          className="absolute top-3 right-3 bg-muted/20 border-primary/30 text-primary hover:bg-primary/10 hover:text-primary hover:border-primary/50 transition-all duration-200"
+          className="absolute top-3 right-3 bg-primary/20 border-primary/50 text-primary hover:bg-primary hover:text-white transition-all duration-200"
           onClick={() => onCopy(code, copyKey)}
         >
           {copiedStates[copyKey] ? (

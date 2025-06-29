@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Star, Github, Mail, Code, Shield, Zap, Eye, Layers, Type, Target, FileText, Workflow, Lock, Puzzle, Download, Copy, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -522,7 +521,7 @@ imagesorcery-mcp --post-install`}
       {/* Enhanced Footer */}
       <footer className="relative z-10 bg-darker-bg border-t border-border/50">
         <div className="container mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -552,16 +551,6 @@ imagesorcery-mcp --post-install`}
                 <li><a href="#getting-started" className="hover:text-primary transition-colors">Getting Started</a></li>
                 <li><a href="#platforms" className="hover:text-primary transition-colors">Platforms</a></li>
                 <li><a href="https://github.com/sunriseapps/imagesorcery-mcp" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Documentation</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#contact" className="hover:text-primary transition-colors">About</a></li>
-                <li><a href="mailto:hello@sunriseapps.com" className="hover:text-primary transition-colors">Contact</a></li>
-                <li><a href="mailto:sales@sunriseapps.com" className="hover:text-primary transition-colors">Enterprise</a></li>
-                <li><a href="mailto:andrei@sunriseapps.com" className="hover:text-primary transition-colors">Partnerships</a></li>
               </ul>
             </div>
           </div>

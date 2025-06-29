@@ -27,6 +27,11 @@ const FloatingElements = () => {
     { size: 'w-8 h-8', top: '35%', left: '30%', color: 'bg-primary', speed: 0.3, delay: '3.5s' },
     { size: 'w-14 h-14', top: '55%', right: '60%', color: 'bg-secondary', speed: 0.3, delay: '0.8s' },
     { size: 'w-6 h-6', top: '75%', left: '45%', color: 'bg-primary', speed: 0.3, delay: '1.8s' },
+    
+    // Additional small elements for more variety
+    { size: 'w-4 h-4', top: '15%', left: '40%', color: 'bg-primary', speed: 0.3, delay: '2.2s' },
+    { size: 'w-5 h-5', top: '65%', right: '15%', color: 'bg-secondary', speed: 0.3, delay: '3.8s' },
+    { size: 'w-7 h-7', top: '25%', right: '35%', color: 'bg-gradient-primary', speed: 0.3, delay: '1.2s' },
   ];
 
   return (
