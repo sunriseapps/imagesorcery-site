@@ -36,7 +36,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         <Button
           size="sm"
           variant="outline"
-          className="absolute top-3 right-3 bg-primary/20 border-primary/50 text-primary hover:bg-primary hover:text-white transition-all duration-200"
+          className="absolute top-3 right-3 bg-primary/30 border-primary/50 text-white hover:bg-primary hover:text-white transition-all duration-200"
           onClick={() => onCopy(code, copyKey)}
         >
           {copiedStates[copyKey] ? (

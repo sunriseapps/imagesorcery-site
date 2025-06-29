@@ -32,6 +32,11 @@ const FloatingElements = () => {
     { size: 'w-4 h-4', top: '15%', left: '40%', color: 'bg-primary', speed: 0.3, delay: '2.2s' },
     { size: 'w-5 h-5', top: '65%', right: '15%', color: 'bg-secondary', speed: 0.3, delay: '3.8s' },
     { size: 'w-7 h-7', top: '25%', right: '35%', color: 'bg-gradient-primary', speed: 0.3, delay: '1.2s' },
+    
+    // Extra tiny elements for more density
+    { size: 'w-3 h-3', top: '5%', left: '60%', color: 'bg-primary', speed: 0.3, delay: '4.2s' },
+    { size: 'w-2 h-2', top: '85%', left: '25%', color: 'bg-secondary', speed: 0.3, delay: '1.7s' },
+    { size: 'w-4 h-4', top: '40%', right: '10%', color: 'bg-gradient-primary', speed: 0.3, delay: '3.3s' },
   ];
 
   return (
@@ -39,7 +44,7 @@ const FloatingElements = () => {
       {elements.map((element, index) => (
         <div
           key={index}
-          className={`absolute ${element.size} ${element.color} rounded-full opacity-20 animate-float`}
+          className={`absolute ${element.size} ${element.color} rounded-full opacity-10 animate-float`}
           style={{
             ...element.top && { top: element.top },
             ...element.left && { left: element.left },

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Star, Github, Mail, Code, Shield, Zap, Eye, Layers, Type, Target, FileText, Workflow, Lock, Puzzle, Download, Copy, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -98,7 +99,7 @@ const Index = () => {
 9. Attempt completion, indicating that the installation and configuration are complete.`;
 
   return (
-    <div className="min-h-screen bg-darker-bg relative overflow-hidden">
+    <div className="min-h-screen bg-darker-bg relative overflow-hidden body-bg">
       <Header />
       <FloatingElements />
       
@@ -130,7 +131,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <div className="max-w-4xl mx-auto">
-              <div className="glass-card p-8 rounded-2xl relative">
+              <div className="glass-card p-8 rounded-2xl relative animate-video-glow">
                 <div className="absolute inset-0 bg-gradient-primary opacity-10 rounded-2xl animate-pulse-slow"></div>
                 <div className="relative z-10">
                   <div className="aspect-video bg-muted rounded-xl mb-6 flex items-center justify-center">

@@ -54,11 +54,6 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: 
-      radial-gradient(circle at 25% 25%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-      hsl(var(--darker-bg));
-    background-attachment: fixed;
   }
 
   html {
@@ -109,11 +104,25 @@
     animation: scroll-x 30s linear infinite;
   }
 
+  .animate-video-glow {
+    animation: video-pulse 3s ease-in-out infinite;
+  }
+
   .hero-bg {
     background: 
       radial-gradient(circle at 25% 25%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
       hsl(var(--darker-bg));
+  }
+
+  .body-bg {
+    background: 
+      radial-gradient(circle at 25% 25%, rgba(124, 58, 237, 0.075) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.075) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 20% 60%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+      hsl(var(--darker-bg));
+    background-attachment: fixed;
   }
 }
 
@@ -132,6 +141,15 @@
   }
   50% {
     box-shadow: 0 0 40px rgba(124, 58, 237, 0.6), 0 0 60px rgba(59, 130, 246, 0.3);
+  }
+}
+
+@keyframes video-pulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(124, 58, 237, 0.4), 0 0 70px rgba(59, 130, 246, 0.2);
   }
 }
 
