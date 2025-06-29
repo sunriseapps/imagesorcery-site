@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Star, Github, Mail, Code, Shield, Zap, Eye, Layers, Type, Target, FileText, Workflow, Lock, Puzzle, Download, Copy, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Header from '@/components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import FloatingElements from '@/components/FloatingElements';
+import HeroFloatingElements from '@/components/HeroFloatingElements';
 
 const Index = () => {
   const [copiedStates, setCopiedStates] = useState<{ [key: string]: boolean }>({});
@@ -105,6 +105,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen hero-bg flex items-center justify-center overflow-hidden">
+        <HeroFloatingElements />
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
