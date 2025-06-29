@@ -54,7 +54,11 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: hsl(var(--darker-bg));
+    background: 
+      radial-gradient(circle at 25% 25%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+      hsl(var(--darker-bg));
+    background-attachment: fixed;
   }
 
   html {
@@ -76,7 +80,7 @@
   }
 
   .bg-gradient-glow {
-    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
   }
 
   .glass-card {
@@ -98,7 +102,11 @@
   }
 
   .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .animate-scroll-x {
+    animation: scroll-x 30s linear infinite;
   }
 
   .hero-bg {
@@ -110,8 +118,30 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.6), 0 0 60px rgba(59, 130, 246, 0.3);
+  }
+}
+
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Scrollbar styling */
@@ -130,4 +160,46 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--magic-blue));
+}
+
+/* Code syntax highlighting */
+.hljs {
+  background: transparent !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a737d;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #d73a49;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #005cc5;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #032f62;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #6f42c1;
+}
+
+/* Responsive horizontal scroll */
+@media (max-width: 768px) {
+  .animate-scroll-x {
+    animation-duration: 20s;
+  }
 }
