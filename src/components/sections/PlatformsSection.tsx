@@ -29,12 +29,7 @@ const PlatformsSection = () => {
 
         {/* Контейнер для мобильных устройств с горизонтальным скроллом */}
         <div className="md:hidden">
-          <div className="flex space-x-6 overflow-x-auto pb-4 px-6 -mx-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            <style jsx>{`
-              div::-webkit-scrollbar {
-                display: none;
-              }
-            `}</style>
+          <div className="flex space-x-6 overflow-x-auto pb-4 px-6 -mx-6 scrollbar-none">
             {platforms.map((platform, index) => (
               <a
                 key={index}

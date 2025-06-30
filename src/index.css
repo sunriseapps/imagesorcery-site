@@ -92,6 +92,15 @@
     box-shadow: 0 0 60px rgba(124, 58, 237, 0.4);
   }
 
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
