@@ -27,29 +27,9 @@ const PlatformsSection = () => {
           </p>
         </div>
 
-        {/* Контейнер для мобильных устройств с горизонтальным скроллом */}
-        <div className="md:hidden">
-          <div className="flex space-x-6 overflow-x-auto pb-4 px-6 -mx-6 scrollbar-none">
-            {platforms.map((platform, index) => (
-              <a
-                key={index}
-                href={platform.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card p-6 rounded-xl hover-glow transition-all duration-300 hover:scale-105 text-center flex-shrink-0 w-48"
-              >
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <Code className="w-6 h-6 text-white" />
-                </div>
-                <p className="text-sm font-medium text-center">{platform.name}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Автоматическая прокрутка для десктопа */}
-        <div className="hidden md:block relative">
-          <div className="flex space-x-6 animate-scroll-x">
+        {/* Единый контейнер для всех устройств с увеличенным padding для hover эффектов */}
+        <div className="relative py-8">
+          <div className="flex space-x-6 overflow-x-auto scrollbar-none pb-4 px-6 -mx-6 animate-scroll-x">
             {duplicatedPlatforms.map((platform, index) => (
               <a
                 key={index}
