@@ -29,7 +29,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       )}
       <div className="bg-black/70 backdrop-blur-sm p-4 rounded-lg relative overflow-x-auto">
         <pre className="text-sm">
-          <code className="text-primary whitespace-pre-wrap">
+          <code className="text-primary whitespace-nowrap">
             {code}
           </code>
         </pre>

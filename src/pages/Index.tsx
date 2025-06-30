@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Star, Github, Mail, Code, Shield, Zap, Eye, Layers, Type, Target, FileText, Workflow, Lock, Puzzle, Download, Copy, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
 import CodeBlock from '@/components/CodeBlock';
 import FloatingElements from '@/components/FloatingElements';
@@ -113,7 +115,7 @@ const Index = () => {
               <span className="text-gradient">Image Processing Sorcery</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
-              No more visual limitations for your AI. ImageSorcery equips your agents with a comprehensive suite of image analysis and manipulation tools, enabling them to understand, process, and transform visual data, with all processing handled securely on your local machine.
+              ImageSorcery equips your agents with a comprehensive suite of image manipulation tools, enabling them to understand, process, and transform visual data, with all processing handled securely <span className="text-primary font-semibold">on your local machine</span>.
             </p>
             <Button 
               size="lg" 
@@ -166,7 +168,7 @@ const Index = () => {
             {features.map((feature, index) => (
               <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}>
                 <div className="flex-1">
-                  <div className="glass-card p-8 rounded-2xl hover-glow transition-all duration-300">
+                  <div className="glass-card p-8 rounded-2xl transition-all duration-300">
                     <div className="flex items-center mb-6">
                       <div className="bg-gradient-primary p-3 rounded-lg mr-4 text-white">
                         {feature.icon}
@@ -185,7 +187,7 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <div className="aspect-video bg-muted rounded-xl flex items-center justify-center glass-card">
+                  <div className="aspect-video bg-muted rounded-xl flex items-center justify-center glass-card hover-glow transition-all duration-300">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto">
                         {feature.icon}
@@ -222,17 +224,17 @@ const Index = () => {
               </p>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-400 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                   <span>Python 3.10 or higher</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="w-5 h-5 text-green-400 mr-3" />
+                  <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                   <span>An MCP-compatible AI client (like Claude.app, Cursor, or Cline)</span>
                 </div>
               </div>
               <div className="mt-6 p-4 bg-muted/30 rounded-lg border-l-4 border-primary">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Note:</strong> For detailed system library requirements (e.g., for Docker environments), please refer to the full README documentation.
+                  <strong>Note:</strong> For detailed system library requirements (e.g., for Docker environments), please refer to the full <a href="https://github.com/sunriseapps/imagesorcery-mcp" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">README</a> documentation.
                 </p>
               </div>
             </div>
@@ -249,8 +251,8 @@ const Index = () => {
 
               <Tabs defaultValue="agentic" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-8">
-                  <TabsTrigger value="agentic">Autonomous Agentic Setup</TabsTrigger>
-                  <TabsTrigger value="manual">Manual Setup</TabsTrigger>
+                  <TabsTrigger value="agentic">Agentic</TabsTrigger>
+                  <TabsTrigger value="manual">Manual</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="agentic" className="space-y-6">
@@ -396,8 +398,8 @@ imagesorcery-mcp --post-install`}
           </div>
 
           <div className="relative">
-            <div className="flex space-x-6 animate-scroll-x">
-              {[...platforms, ...platforms].map((platform, index) => (
+            <div className="flex space-x-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-muted">
+              {platforms.map((platform, index) => (
                 <a
                   key={index}
                   href={platform.url}
@@ -444,8 +446,11 @@ imagesorcery-mcp --post-install`}
                       <span className="text-2xl font-bold">AK</span>
                     </div>
                   </div>
-                  <p className="font-semibold">Kuntsevich Andrei</p>
-                  <p className="text-sm text-muted-foreground">Solution Architect at Sunrise Apps</p>
+                  <div className="flex flex-col items-center">
+                    <p className="font-semibold">Kuntsevich Andrei</p>
+                    <p className="text-sm text-muted-foreground mb-2">Solution Architect at Sunrise Apps</p>
+                    <Badge variant="secondary" className="text-xs">Author</Badge>
+                  </div>
                 </div>
               </div>
             </div>
@@ -534,16 +539,6 @@ imagesorcery-mcp --post-install`}
               <p className="text-muted-foreground mb-4 max-w-md">
                 Empowering AI agents with comprehensive image processing capabilities while maintaining complete privacy through local processing.
               </p>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://github.com/sunriseapps/imagesorcery-mcp" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-              </div>
             </div>
             
             <div>
