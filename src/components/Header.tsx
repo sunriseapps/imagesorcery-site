@@ -48,12 +48,6 @@ const Header = () => {
                 Getting Started
               </button>
               <button 
-                onClick={() => scrollToSection('platforms')}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Platforms
-              </button>
-              <button 
                 onClick={() => scrollToSection('contact')}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
