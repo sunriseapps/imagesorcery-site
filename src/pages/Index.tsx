@@ -6,6 +6,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import VideoSection from '@/components/sections/VideoSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import GettingStartedSection from '@/components/sections/GettingStartedSection';
+import PlatformsSection from '@/components/sections/PlatformsSection';
 import AboutSection from '@/components/sections/AboutSection';
 import FooterSection from '@/components/sections/FooterSection';
 
@@ -29,6 +30,7 @@ const Index = () => {
       <VideoSection />
       <FeaturesSection />
       <GettingStartedSection copiedStates={copiedStates} onCopy={handleCopy} />
+      <PlatformsSection />
       <AboutSection />
       <FooterSection />
     </div>
