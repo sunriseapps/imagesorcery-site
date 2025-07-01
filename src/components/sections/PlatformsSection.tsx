@@ -6,42 +6,42 @@ const PlatformsSection = () => {
     {
       name: 'Smithery.ai',
       url: 'https://smithery.ai/server/@sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/e1527e34-386e-4712-9e0a-09a2880990ad.png'
+      logo: '/lovable-uploads/smithery.ai.png'
     },
     {
       name: 'MseeP.ai',
       url: 'https://mseep.ai/app/sunriseapps-imagesorcery-mcp',
-      logo: '/lovable-uploads/58be6960-95a1-4600-b805-0001874803e4.png'
+      logo: '/lovable-uploads/mseep.ai.png'
     },
     {
       name: 'Pulse MCP',
       url: 'https://www.pulsemcp.com/servers/sunriseapps-imagesorcery',
-      logo: '/lovable-uploads/4dbc2bd7-220a-4c83-be3f-e4b805f84e65.png'
+      logo: '/lovable-uploads/pulsemcp.com.png'
     },
     {
       name: 'MCP.so',
       url: 'https://mcp.so/server/imagesorcery-mcp',
-      logo: '/lovable-uploads/61c683ac-40fa-4d37-be5a-10adcbceb553.png'
+      logo: '/lovable-uploads/mcp.so.png'
     },
     {
       name: 'MCPServers.org',
       url: 'https://mcpservers.org/servers/sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/8fb3ab7f-ed2a-4e2b-9e6a-ff34e084f84f.png'
+      logo: '/lovable-uploads/mcpservers.org.png'
     },
     {
       name: 'ModelScope',
       url: 'https://www.modelscope.cn/mcp/servers/@sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/b02baeef-8af5-42ba-93f0-ef10efd739af.png'
+      logo: '/lovable-uploads/modelscope.cn.png'
     },
     {
       name: 'Glama.ai',
       url: 'https://glama.ai/mcp/servers/@sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/0de07841-479f-405f-bd87-192eb9dc831f.png'
+      logo: '/lovable-uploads/glama.ai.png'
     },
     {
       name: 'Cursor Directory',
       url: 'https://cursor.directory/mcp/imagesorcery-mcp',
-      logo: '/lovable-uploads/3ec19e1b-a31f-4776-8248-94e866fc606a.png'
+      logo: '/lovable-uploads/cursor.directory.png'
     }
   ];
 
