@@ -3,10 +3,17 @@ import { Mail, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
+// Extend Window interface for GitHub buttons
+declare global {
+  interface Window {
+    ghr?: () => void;
+  }
+}
+
 const AboutSection = () => {
   useEffect(() => {
     // Инициализация GitHub кнопок после загрузки компонента
-    if (window.ghr) {
+    if (typeof window !== 'undefined' && window.ghr) {
       window.ghr();
     }
   }, []);
