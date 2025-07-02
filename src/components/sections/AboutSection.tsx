@@ -1,10 +1,26 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Mail, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const AboutSection = () => {
+  useEffect(() => {
+    // Загружаем скрипт GitHub buttons
+    const script = document.createElement('script');
+    script.src = 'https://buttons.github.io/buttons.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup: удаляем скрипт при размонтировании компонента
+      const existingScript = document.querySelector('script[src="https://buttons.github.io/buttons.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <section id="contact" className="py-20 bg-gradient-glow relative z-10">
       <div className="container mx-auto px-6">
