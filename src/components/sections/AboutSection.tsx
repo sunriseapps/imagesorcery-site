@@ -1,10 +1,16 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Mail, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 const AboutSection = () => {
+  useEffect(() => {
+    // Инициализация GitHub кнопок после загрузки компонента
+    if (window.ghr) {
+      window.ghr();
+    }
+  }, []);
+
   return (
     <section id="contact" className="py-20 bg-gradient-glow relative z-10">
       <div className="container mx-auto px-6">
@@ -96,7 +102,8 @@ const AboutSection = () => {
                     <a 
                       className="github-button" 
                       href="https://github.com/sunriseapps/imagesorcery-mcp" 
-                      data-color-scheme="no-preference: dark; light: dark; dark: dark;" 
+                      data-color-scheme="no-preference: light; light: light; dark: light;" 
+                      data-icon="octicon-star"
                       data-size="large" 
                       data-show-count="true" 
                       aria-label="Star sunriseapps/imagesorcery-mcp on GitHub"
