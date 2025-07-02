@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail } from 'lucide-react';
+import { Mail, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -42,7 +42,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-1 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             <Card className="glass-card border-0">
               <CardContent className="p-6">
                 <h4 className="text-lg font-semibold mb-4 flex items-center">
@@ -66,6 +66,42 @@ const AboutSection = () => {
                     <p className="text-sm text-muted-foreground">Partnerships:</p>
                     <a href="mailto:andrei@sunriseapps.com" className="text-primary hover:underline">
                       andrei@sunriseapps.com
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card border-0">
+              <CardContent className="p-6">
+                <h4 className="text-lg font-semibold mb-4 flex items-center">
+                  <Github className="w-5 h-5 mr-2 text-primary" />
+                  Open Source
+                </h4>
+                <p className="text-muted-foreground mb-4">
+                  Explore our code, report issues, or contribute to the project.
+                </p>
+                <div className="space-y-4">
+                  <a
+                    href="https://github.com/sunriseapps/imagesorcery-mcp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-primary hover:underline"
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    sunriseapps/imagesorcery-mcp
+                  </a>
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-2">Show your support:</p>
+                    <a 
+                      className="github-button" 
+                      href="https://github.com/sunriseapps/imagesorcery-mcp" 
+                      data-color-scheme="no-preference: dark; light: dark; dark: dark;" 
+                      data-size="large" 
+                      data-show-count="true" 
+                      aria-label="Star sunriseapps/imagesorcery-mcp on GitHub"
+                    >
+                      Star
                     </a>
                   </div>
                 </div>
