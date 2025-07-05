@@ -15,19 +15,22 @@ const FeaturesSection = () => {
       icon: <Target className="w-8 h-8" />,
       title: "Precision Image Transformation",
       description: "Gain granular control over your visuals. ImageSorcery empowers your AI to effortlessly transform images to exact specifications. Tools like <span class='text-primary font-semibold'>rotate</span> allow precise angular adjustments, while <span class='text-primary font-semibold'>crop</span> enables perfect framing for any platform. Additionally, <span class='text-primary font-semibold'>resize</span> offers flexible scaling. Crucially, the <span class='text-primary font-semibold'>get_metainfo</span> tool provides your agent with essential image dimensions and properties, ensuring intelligent and accurate application of these transformations.",
-      prompt: "Rotate image.png 4\" clockwise, then find and crop the tower"
+      prompt: "Rotate image.png 4\" clockwise, then find and crop the tower",
+      demoImage: "/demo-2.webp"
     },
     {
       icon: <Layers className="w-8 h-8" />,
       title: "Seamless Image Layering",
       description: "Effortlessly enhance your images by overlaying other visuals. Whether it's adding logos, watermarks, or combining elements, ImageSorcery allows your AI to seamlessly blend images with transparency handling using the <span class='text-primary font-semibold'>overlay</span> tool, creating polished, professional results.",
-      prompt: "Place a logo.png on the bottom right corner of the image.png"
+      prompt: "Place a logo.png on the bottom right corner of the image.png",
+      demoImage: "/demo-3.webp"
     },
     {
       icon: <Type className="w-8 h-8" />,
       title: "Dynamic Text Annotation",
       description: "Add contextual information or creative flair directly onto your images. ImageSorcery empowers your AI to draw custom text at any position, with control over font, size, and color, using the <span class='text-primary font-semibold'>draw_texts</span> tool, perfect for labels, captions, or dynamic overlays.",
-      prompt: "Numerate the cats in the image.png"
+      prompt: "Numerate the cats in the image.png",
+      demoImage: "/demo-4.webp"
     },
     {
       icon: <Target className="w-8 h-8" />,
@@ -101,7 +104,7 @@ const FeaturesSection = () => {
                       {feature.prompt && (
                         <div className="bg-muted/30 p-4 rounded-lg border-l-4 border-primary">
                           <p className="text-sm text-muted-foreground italic">
-                            Prompt: {feature.prompt}
+                            Prompt example: {feature.prompt}
                           </p>
                         </div>
                       )}
