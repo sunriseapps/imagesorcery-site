@@ -27,16 +27,18 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           {filename}
         </div>
       )}
-      <div className="bg-black/70 backdrop-blur-sm p-4 rounded-lg relative overflow-x-auto">
-        <pre className="text-sm pr-20">
-          <code className="text-primary whitespace-pre">
-            {code}
-          </code>
-        </pre>
+      <div className="bg-black/70 backdrop-blur-sm p-4 rounded-lg relative">
+        <div className="overflow-x-auto">
+          <pre className="text-sm">
+            <code className="text-primary whitespace-pre">
+              {code}
+            </code>
+          </pre>
+        </div>
         <Button
           size="sm"
           variant="outline"
-          className="absolute top-3 right-3 bg-primary/30 border-primary/50 text-white hover:bg-primary hover:text-white transition-all duration-200 sticky"
+          className="absolute top-3 right-3 bg-primary/30 border-primary/50 text-white hover:bg-primary hover:text-white transition-all duration-200"
           onClick={() => onCopy(code, copyKey)}
         >
           {copiedStates[copyKey] ? (
