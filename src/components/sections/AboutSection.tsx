@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Mail, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,18 +6,16 @@ import { Badge } from '@/components/ui/badge';
 
 const AboutSection = () => {
   useEffect(() => {
-    // Загружаем скрипт GitHub buttons
     const script = document.createElement('script');
     script.src = 'https://buttons.github.io/buttons.js';
     script.async = true;
     script.defer = true;
-    document.body.appendChild(script);
+    document.head.appendChild(script);
 
     return () => {
-      // Cleanup: удаляем скрипт при размонтировании компонента
       const existingScript = document.querySelector('script[src="https://buttons.github.io/buttons.js"]');
       if (existingScript) {
-        document.body.removeChild(existingScript);
+        document.head.removeChild(existingScript);
       }
     };
   }, []);
@@ -44,10 +43,12 @@ const AboutSection = () => {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-32 h-32 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <div className="w-24 h-24 bg-muted rounded-full flex items-center justify-center">
-                    <span className="text-2xl font-bold">AK</span>
-                  </div>
+                <div className="w-32 h-32 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/f35d989c-9e27-4b60-81a8-e798fe21397c.png" 
+                    alt="Kuntsevich Andrei"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">Kuntsevich Andrei</p>
@@ -73,7 +74,7 @@ const AboutSection = () => {
                     </a>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Sales & Enterprise:</p>
+                    <p className="text-sm text-muted-foreground">Enterprise Deployment:</p>
                     <a href="mailto:sales@sunriseapps.com" className="text-primary hover:underline">
                       sales@sunriseapps.com
                     </a>

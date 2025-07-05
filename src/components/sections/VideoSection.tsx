@@ -8,7 +8,7 @@ const VideoSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="max-w-4xl mx-auto">
-            <div className="glass-card p-8 rounded-2xl relative animate-video-glow">
+            <div className="glass-card p-8 rounded-2xl relative hover:animate-video-glow transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-primary opacity-10 rounded-2xl animate-pulse-slow"></div>
               <div className="relative z-10">
                 <div className="aspect-video bg-muted rounded-xl mb-6 flex items-center justify-center">

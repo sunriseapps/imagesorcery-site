@@ -15,7 +15,7 @@ const HeroSection = () => {
             <span className="text-gradient">Image Processing Sorcery</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
-            ImageSorcery equips your agents with a comprehensive suite of image manipulation tools, enabling them to understand, process, and transform visual data, with all processing handled securely <span className="text-primary font-semibold">on your local machine</span>.
+            ImageSorcery equips your agents with a comprehensive suite of image manipulation tools, enabling them to understand, process, and transform visual data <span className="text-primary font-semibold">on your local machine</span>.
           </p>
           <Button 
             size="lg" 
