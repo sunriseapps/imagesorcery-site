@@ -117,23 +117,30 @@ const FloatingElements = () => {
         const totalHeight = Math.max(document.documentElement.scrollHeight || 5000, 8000);
         const viewportHeight = window.innerHeight || 800;
         
-        const initialTop = (totalHeight * element.top) / 100;
-        const parallaxOffset = scrollY * element.speed;
-        const currentTop = initialTop - parallaxOffset;
+        // Calculate initial position in vh units (viewport height percentage)
+        const initialTopVh = (element.top * viewportHeight) / 100;
         
+        // Calculate parallax offset using transform instead of changing top
+        const parallaxOffset = scrollY * element.speed;
+        
+        // Calculate cycle position for infinite scroll effect
         const cycleHeight = totalHeight + viewportHeight;
-        const adjustedTop = ((currentTop % cycleHeight) + cycleHeight) % cycleHeight;
+        const currentPosition = initialTopVh - parallaxOffset;
+        const adjustedPosition = ((currentPosition % cycleHeight) + cycleHeight) % cycleHeight;
         
         return (
           <div
             key={index}
             className={`absolute ${element.size} ${element.color} rounded-full opacity-5 animate-float`}
             style={{
-              top: `${adjustedTop}px`,
+              top: `${element.top}vh`, // Fixed initial position in viewport units
               ...('left' in element && { left: `${element.left}%` }),
               ...('right' in element && { right: `${element.right}%` }),
               filter: 'blur(1px)',
-              transform: `rotate(${scrollY * 0.1}deg)`,
+              // Use transform for all movement - this prevents layout shifts
+              transform: `translateY(${adjustedPosition - initialTopVh}px) rotate(${scrollY * 0.1}deg)`,
+              // Use will-change to optimize performance
+              willChange: 'transform',
             }}
           />
         );
