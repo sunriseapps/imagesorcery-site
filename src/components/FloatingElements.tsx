@@ -117,15 +117,15 @@ const FloatingElements = () => {
         const totalHeight = Math.max(document.documentElement.scrollHeight || 5000, 8000);
         const viewportHeight = window.innerHeight || 800;
         
-        // Calculate initial position in vh units (viewport height percentage)
-        const initialTopVh = (element.top * viewportHeight) / 100;
+        // Calculate initial position in viewport units
+        const initialTopVh = element.top;
         
-        // Calculate parallax offset using transform instead of changing top
+        // Calculate parallax offset - this is what makes elements move at different speeds
         const parallaxOffset = scrollY * element.speed;
         
         // Calculate cycle position for infinite scroll effect
         const cycleHeight = totalHeight + viewportHeight;
-        const currentPosition = initialTopVh - parallaxOffset;
+        const currentPosition = -parallaxOffset;
         const adjustedPosition = ((currentPosition % cycleHeight) + cycleHeight) % cycleHeight;
         
         return (
@@ -133,12 +133,12 @@ const FloatingElements = () => {
             key={index}
             className={`absolute ${element.size} ${element.color} rounded-full opacity-5 animate-float`}
             style={{
-              top: `${element.top}vh`, // Fixed initial position in viewport units
+              top: `${initialTopVh}vh`, // Fixed initial position in viewport units
               ...('left' in element && { left: `${element.left}%` }),
               ...('right' in element && { right: `${element.right}%` }),
               filter: 'blur(1px)',
-              // Use transform for all movement - this prevents layout shifts
-              transform: `translateY(${adjustedPosition - initialTopVh}px) rotate(${scrollY * 0.1}deg)`,
+              // Use transform for parallax movement - this prevents layout shifts
+              transform: `translateY(${adjustedPosition}px) rotate(${scrollY * 0.1}deg)`,
               // Use will-change to optimize performance
               willChange: 'transform',
             }}
