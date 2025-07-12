@@ -6,7 +6,7 @@
       {
         icon: <Eye className="w-8 h-8" />,
         title: "Intelligent Object Detection & Discovery",
-        description: "AI agents accurately identify and locate objects using <span class='text-primary font-semibold'>YOLO from Ultralytics</span>. The <span class='text-primary font-semibold'>detect</span> and <span class='text-primary font-semibold'>find</span> tools enable precise visual understanding and autonomous computer vision application.",
+        description: "AI agents accurately identify and locate objects using YOLO models from Ultralytics. The <span class='text-primary font-semibold'>detect</span> and <span class='text-primary font-semibold'>find</span> tools enable precise visual understanding and autonomous computer vision application.",
         prompt: "Remove images without animals",
         demoVideo: "/demo-1.mp4"
       },
