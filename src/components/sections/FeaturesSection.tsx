@@ -6,42 +6,42 @@
       {
         icon: <Eye className="w-8 h-8" />,
         title: "Intelligent Object Detection & Discovery",
-        description: "Unleash powerful image intelligence. ImageSorcery empowers your AI agents to accurately identify and locate objects within images using cutting-edge models like <span class='text-primary font-semibold'>YOLO from Ultralytics</span>. With the <span class='text-primary font-semibold'>detect</span> and <span class='text-primary font-semibold'>find</span> tools, your AI can gain precise visual understanding. Crucially, these capabilities allow your agent to autonomously apply computer vision when it's a necessary step to fulfill your broader requests, even if not explicitly commanded.",
+        description: "AI agents accurately identify and locate objects using <span class='text-primary font-semibold'>YOLO from Ultralytics</span>. The <span class='text-primary font-semibold'>detect</span> and <span class='text-primary font-semibold'>find</span> tools enable precise visual understanding and autonomous computer vision application.",
         prompt: "Remove images without animals",
         demoVideo: "/demo-1.mp4"
       },
       {
         icon: <Target className="w-8 h-8" />,
         title: "Precision Image Transformation",
-        description: "Gain granular control over your visuals. ImageSorcery empowers your AI to effortlessly transform images to exact specifications. Tools like <span class='text-primary font-semibold'>rotate</span> allow precise angular adjustments, while <span class='text-primary font-semibold'>crop</span> enables perfect framing for any platform. Additionally, <span class='text-primary font-semibold'>resize</span> offers flexible scaling. Crucially, the <span class='text-primary font-semibold'>get_metainfo</span> tool provides your agent with essential image dimensions and properties, ensuring intelligent and accurate application of these transformations.",
+        description: "Transform images with <span class='text-primary font-semibold'>rotate</span> for angular adjustments, <span class='text-primary font-semibold'>crop</span> for perfect framing, and <span class='text-primary font-semibold'>resize</span> for flexible scaling. The <span class='text-primary font-semibold'>get_metainfo</span> tool provides essential image properties for intelligent transformations.",
         prompt: "Rotate image.png 4\" clockwise, then find and crop the tower",
         demoVideo: "/demo-2.mp4"
       },
       {
         icon: <Layers className="w-8 h-8" />,
         title: "Seamless Image Layering",
-        description: "Effortlessly enhance your images by overlaying other visuals. Whether it's adding logos, watermarks, or combining elements, ImageSorcery allows your AI to seamlessly blend images with transparency handling using the <span class='text-primary font-semibold'>overlay</span> tool, creating polished, professional results.",
+        description: "Enhance images by overlaying logos, watermarks, or combining elements. The <span class='text-primary font-semibold'>overlay</span> tool seamlessly blends images with transparency handling for professional results.",
         prompt: "Place a logo.png on the bottom right corner of the image.png",
         demoVideo: "/demo-3.mp4"
       },
       {
         icon: <Type className="w-8 h-8" />,
         title: "Dynamic Text Annotation",
-        description: "Add contextual information or creative flair directly onto your images. ImageSorcery empowers your AI to draw custom text at any position, with control over font, size, and color, using the <span class='text-primary font-semibold'>draw_texts</span> tool, perfect for labels, captions, or dynamic overlays.",
+        description: "Add custom text at any position with control over font, size, and color using the <span class='text-primary font-semibold'>draw_texts</span> tool. Perfect for labels, captions, or dynamic overlays.",
         prompt: "Numerate the cats in the image.png",
         demoVideo: "/demo-4.mp4"
       },
       {
         icon: <Target className="w-8 h-8" />,
         title: "Visual Highlighting & Diagramming",
-        description: "Guide attention and illustrate concepts with ease. ImageSorcery allows your AI to draw various shapes directly onto images, including arrows (<span class='text-primary font-semibold'>draw_arrows</span>), circles (<span class='text-primary font-semibold'>draw_circles</span>), and rectangles (<span class='text-primary font-semibold'>draw_rectangles</span>), enabling clear visual communication and annotation for presentations or analysis.",
+        description: "Draw shapes directly onto images including <span class='text-primary font-semibold'>draw_arrows</span>, <span class='text-primary font-semibold'>draw_circles</span>, and <span class='text-primary font-semibold'>draw_rectangles</span> for clear visual communication and annotation.",
         prompt: "Draw a big rectangle, a circle and an arrow between on image.png",
         demoVideo: "/demo-5.mp4"
       },
       {
         icon: <FileText className="w-8 h-8" />,
         title: "Intelligent Text Extraction (OCR)",
-        description: "Transform static images into actionable data. ImageSorcery's advanced OCR capabilities enable your AI to accurately extract text from documents, forms, or even specific fields like a name from an ID card, using the <span class='text-primary font-semibold'>ocr</span> tool, turning visual information into editable and searchable data.",
+        description: "Extract text from documents, forms, or specific fields using the <span class='text-primary font-semibold'>ocr</span> tool, turning visual information into editable and searchable data.",
         prompt: "Read the name from id_card.png",
         demoVideo: "/demo-6.mp4"
       },
