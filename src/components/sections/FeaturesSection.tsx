@@ -47,7 +47,7 @@
       },
       {
         icon: <Lock className="w-8 h-8" />,
-        title: "Uncompromised Privacy: Local Processing",
+        title: "Local Processing",
         description: "Unlike cloud-based solutions, ImageSorcery processes all your images directly on your local machine. This ensures your sensitive visual data never leaves your environment, providing unparalleled security and privacy. Whether you're interacting with external LLMs like <span class='text-primary font-semibold'>Claude</span>, <span class='text-primary font-semibold'>Gemini</span>, or <span class='text-primary font-semibold'>ChatGPT</span>, or leveraging the absolute security of local models such as <span class='text-primary font-semibold'>Llama</span> or <span class='text-primary font-semibold'>Mistral</span>, your visual data remains entirely within your control.",
         isFullWidth: true
       }

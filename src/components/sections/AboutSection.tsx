@@ -36,7 +36,7 @@ const AboutSection = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  At <strong>SunriseApps</strong>, we believe AI agents should be limitless, especially when it comes to visual data. We created ImageSorcery to bridge the critical gap in AI's ability to interact with and manipulate images directly, all while upholding the highest standards of privacy and security.
+                  At <strong>Sunrise Apps</strong>, we believe AI agents should be limitless, especially when it comes to visual data. We created ImageSorcery to bridge the critical gap in AI's ability to interact with and manipulate images directly, all while upholding the highest standards of privacy and security.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   Our mission is to equip every AI agent with the 'eyes' and 'hands' it needs to master the visual world, transforming complex image tasks into seamless, automated workflows.

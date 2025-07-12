@@ -12,10 +12,10 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
             Empower Your AI Agents with{' '}
-            <span className="text-gradient">Image Processing Sorcery</span>
+            <span className="text-gradient">ImageSorcery MCP</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
-            ImageSorcery equips your agents with a comprehensive suite of image manipulation tools, enabling them to understand, process, and transform visual data <span className="text-primary font-semibold">on your local machine</span>.
+            A comprehensive suite of image manipulation tools, for understanding, processing, and transforming visual data <span className="text-primary font-semibold">on your local machine</span>.
           </p>
           <Button 
             size="lg" 
