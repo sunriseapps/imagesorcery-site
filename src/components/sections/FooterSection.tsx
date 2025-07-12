@@ -33,7 +33,7 @@ const FooterSection = () => {
         <div className="border-t border-border/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-              © 2024 SunriseApps. All rights reserved. Built with privacy-first principles.
+              © 2025 Sunrise Apps. All rights reserved.
             </p>
             <div className="flex items-center space-x-4 text-sm text-muted-foreground">
               <span>Powered by AI • Secured by Design</span>

@@ -28,9 +28,6 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Getting Started</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Integrating ImageSorcery into your AI workflow is straightforward. Follow these steps to unlock powerful image processing capabilities for your agents.
-          </p>
         </div>
 
         <div className="max-w-5xl mx-auto">
@@ -38,11 +35,8 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
           <div className="glass-card p-8 rounded-2xl mb-12">
             <h3 className="text-2xl font-bold mb-6 flex items-center">
               <div className="bg-gradient-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 text-lg font-bold">1</div>
-              Prerequisites: What You Need
+              System Requirements
             </h3>
-            <p className="text-muted-foreground mb-6">
-              Before you begin, ensure your system meets these basic requirements:
-            </p>
             <div className="space-y-3">
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
@@ -64,11 +58,8 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
           <div className="glass-card p-8 rounded-2xl">
             <h3 className="text-2xl font-bold mb-6 flex items-center">
               <div className="bg-gradient-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 text-lg font-bold">2</div>
-              Setup: Choose Your Path
+              Setup
             </h3>
-            <p className="text-muted-foreground mb-8">
-              Select the setup method that best suits your AI client and preferences.
-            </p>
 
             <Tabs defaultValue="agentic" className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-8">
