@@ -9,6 +9,7 @@ import GettingStartedSection from '@/components/sections/GettingStartedSection';
 import PlatformsSection from '@/components/sections/PlatformsSection';
 import AboutSection from '@/components/sections/AboutSection';
 import FooterSection from '@/components/sections/FooterSection';
+import CookieConsent from '@/components/CookieConsent';
 
 const Index = () => {
   const [copiedStates, setCopiedStates] = useState<{ [key: string]: boolean }>({});
@@ -33,6 +34,8 @@ const Index = () => {
       <PlatformsSection />
       <AboutSection />
       <FooterSection />
+      
+      <CookieConsent />
     </div>
   );
 };
