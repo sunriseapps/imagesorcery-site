@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Mail, Github } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -53,7 +53,18 @@ const AboutSection = () => {
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">Kuntsevich Andrei</p>
                   <p className="text-sm text-muted-foreground mb-2">Solution Architect at Sunrise Apps</p>
-                  <Badge variant="secondary" className="text-xs">Author</Badge>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary" className="text-xs">Author</Badge>
+                    <a 
+                      href="https://www.linkedin.com/in/titulus/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-xs text-primary hover:underline"
+                    >
+                      <Linkedin className="w-3 h-3 mr-1" />
+                      titulus
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -69,20 +80,26 @@ const AboutSection = () => {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-muted-foreground">General Inquiries:</p>
-                    <a href="mailto:team@sunriseapps.com" className="text-primary hover:underline">
-                      team@sunriseapps.com
+                    <a href="mailto:team@sunrise-apps.com" className="text-primary hover:underline">
+                      team@sunrise-apps.com
                     </a>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Enterprise Deployment:</p>
-                    <a href="mailto:sales@sunriseapps.com" className="text-primary hover:underline">
-                      sales@sunriseapps.com
+                    <a href="mailto:sales@sunrise-apps.com" className="text-primary hover:underline">
+                      sales@sunrise-apps.com
                     </a>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Partnerships:</p>
-                    <a href="mailto:andrei@sunriseapps.com" className="text-primary hover:underline">
-                      andrei@sunriseapps.com
+                    <a 
+                      href="https://www.linkedin.com/in/vladkarm/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-primary hover:underline"
+                    >
+                      <Linkedin className="w-4 h-4 mr-2" />
+                      Vlad Karm (CEO)
                     </a>
                   </div>
                 </div>
