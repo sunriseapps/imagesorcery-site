@@ -3,10 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ImageSorcery MCP Design System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+ /* ImageSorcery MCP Design System */
 
-@layer base {
+ @layer base {
   :root {
     --background: 220 20% 4%;
     --foreground: 0 0% 98%;
