@@ -69,8 +69,8 @@ const AboutSection = () => {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-muted-foreground">General Inquiries:</p>
-                    <a href="mailto:hello@sunriseapps.com" className="text-primary hover:underline">
-                      hello@sunriseapps.com
+                    <a href="mailto:team@sunriseapps.com" className="text-primary hover:underline">
+                      team@sunriseapps.com
                     </a>
                   </div>
                   <div>
