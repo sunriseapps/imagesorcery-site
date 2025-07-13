@@ -5,13 +5,29 @@ import { X } from 'lucide-react';
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasScrolledPastHero, setHasScrolledPastHero] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
-    if (consent === null) {
+    
+    const handleScroll = () => {
+      const heroHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+      
+      if (scrollTop > heroHeight * 0.8) {
+        setHasScrolledPastHero(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Show consent popup only if user hasn't made a choice AND has scrolled past hero
+    if (consent === null && hasScrolledPastHero) {
       setIsVisible(true);
     }
-  }, []);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasScrolledPastHero]);
 
   const acceptCookies = () => {
     localStorage.setItem('cookie-consent', 'accepted');
