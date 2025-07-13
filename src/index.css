@@ -1,10 +1,13 @@
 
+/* Сначала импорты */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Затем директивы Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
- /* ImageSorcery MCP Design System */
+/* ImageSorcery MCP Design System */
 
  @layer base {
   :root {
