@@ -9,7 +9,7 @@ const FooterSection = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/lovable-uploads/c74fd64d-00ef-4dcd-8cc9-e59e96d21d96.png" 
+                src="lovable-uploads/c74fd64d-00ef-4dcd-8cc9-e59e96d21d96.png" 
                 alt="ImageSorcery MCP Logo" 
                 className="w-8 h-8"
               />

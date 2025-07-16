@@ -45,7 +45,7 @@ const AboutSection = () => {
               <div className="text-center">
                 <div className="w-32 h-32 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
                   <img 
-                    src="/lovable-uploads/f35d989c-9e27-4b60-81a8-e798fe21397c.png" 
+                    src="lovable-uploads/f35d989c-9e27-4b60-81a8-e798fe21397c.png" 
                     alt="Kuntsevich Andrei"
                     className="w-full h-full object-cover"
                   />

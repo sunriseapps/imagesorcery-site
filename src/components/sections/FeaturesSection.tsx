@@ -8,42 +8,42 @@
         title: "Intelligent Object Detection & Discovery",
         description: "AI agents accurately identify and locate objects using YOLO models from Ultralytics. The <span class='text-primary font-semibold'>detect</span> and <span class='text-primary font-semibold'>find</span> tools enable precise visual understanding and autonomous computer vision application.",
         prompt: "Remove images without animals",
-        demoVideo: "/demo-1.mp4"
+        demoVideo: "demo-1.mp4"
       },
       {
         icon: <Target className="w-8 h-8" />,
         title: "Precision Image Transformation",
         description: "Transform images with <span class='text-primary font-semibold'>rotate</span> for angular adjustments, <span class='text-primary font-semibold'>crop</span> for perfect framing, and <span class='text-primary font-semibold'>resize</span> for flexible scaling. The <span class='text-primary font-semibold'>get_metainfo</span> tool provides essential image properties for intelligent transformations.",
         prompt: "Rotate image.png 4\" clockwise, then find and crop the tower",
-        demoVideo: "/demo-2.mp4"
+        demoVideo: "demo-2.mp4"
       },
       {
         icon: <Layers className="w-8 h-8" />,
         title: "Seamless Image Layering",
         description: "Enhance images by overlaying logos, watermarks, or combining elements. The <span class='text-primary font-semibold'>overlay</span> tool seamlessly blends images with transparency handling for professional results.",
         prompt: "Place a logo.png on the bottom right corner of the image.png",
-        demoVideo: "/demo-3.mp4"
+        demoVideo: "demo-3.mp4"
       },
       {
         icon: <Type className="w-8 h-8" />,
         title: "Dynamic Text Annotation",
         description: "Add custom text at any position with control over font, size, and color using the <span class='text-primary font-semibold'>draw_texts</span> tool. Perfect for labels, captions, or dynamic overlays.",
         prompt: "Numerate the cats in the image.png",
-        demoVideo: "/demo-4.mp4"
+        demoVideo: "demo-4.mp4"
       },
       {
         icon: <Target className="w-8 h-8" />,
         title: "Visual Highlighting & Diagramming",
         description: "Draw shapes directly onto images including <span class='text-primary font-semibold'>draw_arrows</span>, <span class='text-primary font-semibold'>draw_circles</span>, and <span class='text-primary font-semibold'>draw_rectangles</span> for clear visual communication and annotation.",
         prompt: "Draw a big rectangle, a circle and an arrow between on image.png",
-        demoVideo: "/demo-5.mp4"
+        demoVideo: "demo-5.mp4"
       },
       {
         icon: <FileText className="w-8 h-8" />,
         title: "Intelligent Text Extraction (OCR)",
         description: "Extract text from documents, forms, or specific fields using the <span class='text-primary font-semibold'>ocr</span> tool, turning visual information into editable and searchable data.",
         prompt: "Read the name from id_card.png",
-        demoVideo: "/demo-6.mp4"
+        demoVideo: "demo-6.mp4"
       },
       {
         icon: <Lock className="w-8 h-8" />,

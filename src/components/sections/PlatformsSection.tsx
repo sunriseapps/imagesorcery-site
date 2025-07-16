@@ -6,42 +6,42 @@ const PlatformsSection = () => {
     {
       name: 'Smithery.ai',
       url: 'https://smithery.ai/server/@sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/smithery.ai.png'
+      logo: 'lovable-uploads/smithery.ai.png'
     },
     {
       name: 'MseeP.ai',
       url: 'https://mseep.ai/app/sunriseapps-imagesorcery-mcp',
-      logo: '/lovable-uploads/mseep.ai.png'
+      logo: 'lovable-uploads/mseep.ai.png'
     },
     {
       name: 'Pulse MCP',
       url: 'https://www.pulsemcp.com/servers/sunriseapps-imagesorcery',
-      logo: '/lovable-uploads/pulsemcp.com.png'
+      logo: 'lovable-uploads/pulsemcp.com.png'
     },
     {
       name: 'MCP.so',
       url: 'https://mcp.so/server/imagesorcery-mcp',
-      logo: '/lovable-uploads/mcp.so.png'
+      logo: 'lovable-uploads/mcp.so.png'
     },
     {
       name: 'MCPServers.org',
       url: 'https://mcpservers.org/servers/sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/mcpservers.org.png'
+      logo: 'lovable-uploads/mcpservers.org.png'
     },
     {
       name: 'ModelScope',
       url: 'https://www.modelscope.cn/mcp/servers/@sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/modelscope.cn.png'
+      logo: 'lovable-uploads/modelscope.cn.png'
     },
     {
       name: 'Glama.ai',
       url: 'https://glama.ai/mcp/servers/@sunriseapps/imagesorcery-mcp',
-      logo: '/lovable-uploads/glama.ai.png'
+      logo: 'lovable-uploads/glama.ai.png'
     },
     {
       name: 'Cursor Directory',
       url: 'https://cursor.directory/mcp/imagesorcery-mcp',
-      logo: '/lovable-uploads/cursor.directory.png'
+      logo: 'lovable-uploads/cursor.directory.png'
     }
   ];
 
