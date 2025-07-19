@@ -1,17 +1,36 @@
-
 import React from 'react';
 
 const PlatformsSection = () => {
   const platforms = [
     {
-      name: 'Smithery.ai',
-      url: 'https://smithery.ai/server/@sunriseapps/imagesorcery-mcp',
-      logo: 'lovable-uploads/smithery.ai.png'
+      name: 'Visual Studio Code',
+      url: 'https://code.visualstudio.com/mcp#:~:text=ImageSorcery',
+      logo: 'lovable-uploads/code.visualstudio.com.png'
+    },
+    {
+      name: 'Cursor Directory',
+      url: 'https://cursor.directory/mcp/imagesorcery-mcp',
+      logo: 'lovable-uploads/cursor.directory.png'
+    },
+    {
+      name: 'MCPServers.org',
+      url: 'https://mcpservers.org/servers/sunriseapps/imagesorcery-mcp',
+      logo: 'lovable-uploads/mcpservers.org.png'
     },
     {
       name: 'MseeP.ai',
       url: 'https://mseep.ai/app/sunriseapps-imagesorcery-mcp',
       logo: 'lovable-uploads/mseep.ai.png'
+    },
+    {
+      name: 'Glama.ai',
+      url: 'https://glama.ai/mcp/servers/@sunriseapps/imagesorcery-mcp',
+      logo: 'lovable-uploads/glama.ai.png'
+    },
+    {
+      name: 'Smithery.ai',
+      url: 'https://smithery.ai/server/@sunriseapps/imagesorcery-mcp',
+      logo: 'lovable-uploads/smithery.ai.png'
     },
     {
       name: 'Pulse MCP',
@@ -24,24 +43,14 @@ const PlatformsSection = () => {
       logo: 'lovable-uploads/mcp.so.png'
     },
     {
-      name: 'MCPServers.org',
-      url: 'https://mcpservers.org/servers/sunriseapps/imagesorcery-mcp',
-      logo: 'lovable-uploads/mcpservers.org.png'
-    },
-    {
       name: 'ModelScope',
       url: 'https://www.modelscope.cn/mcp/servers/@sunriseapps/imagesorcery-mcp',
       logo: 'lovable-uploads/modelscope.cn.png'
     },
     {
-      name: 'Glama.ai',
-      url: 'https://glama.ai/mcp/servers/@sunriseapps/imagesorcery-mcp',
-      logo: 'lovable-uploads/glama.ai.png'
-    },
-    {
-      name: 'Cursor Directory',
-      url: 'https://cursor.directory/mcp/imagesorcery-mcp',
-      logo: 'lovable-uploads/cursor.directory.png'
+      name: 'AIToolhouse',
+      url: 'https://www.aitoolhouse.com/mcp-servers/sunriseapps-imagesorcery',
+      logo: 'lovable-uploads/aitoolhouse.com.png'
     }
   ];
 
@@ -58,7 +67,7 @@ const PlatformsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
           {platforms.map((platform, index) => (
             <a
               key={platform.name}
