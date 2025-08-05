@@ -3,8 +3,20 @@ import React, { useEffect } from 'react';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { trackEvent } from '@/lib/analytics';
 
 const AboutSection = () => {
+  const sectionRef = useIntersectionObserver(
+    () => {
+      trackEvent('section_view', {
+        section_id: 'about',
+        section_title: 'About Us & Connect',
+      });
+    },
+    { threshold: 0.25, once: true }
+  );
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://buttons.github.io/buttons.js';
@@ -20,8 +32,20 @@ const AboutSection = () => {
     };
   }, []);
 
+  const handleOutboundLinkClick = (linkName: string, linkUrl: string) => {
+    trackEvent('outbound_link_click', {
+      section: 'about',
+      link_name: linkName,
+      link_url: linkUrl,
+    });
+  };
+
+  const handleStarButtonClick = () => {
+    trackEvent('star_button_click', {});
+  };
+
   return (
-    <section id="contact" className="py-20 bg-gradient-glow relative z-10">
+    <section ref={sectionRef} id="contact" className="py-20 bg-gradient-glow relative z-10">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">About Us & Connect</h2>
@@ -44,8 +68,8 @@ const AboutSection = () => {
               </div>
               <div className="text-center">
                 <div className="w-32 h-32 bg-gradient-primary rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="lovable-uploads/f35d989c-9e27-4b60-81a8-e798fe21397c.png" 
+                  <img
+                    src="lovable-uploads/f35d989c-9e27-4b60-81a8-e798fe21397c.png"
                     alt="Kuntsevich Andrei"
                     className="w-full h-full object-cover"
                   />
@@ -55,11 +79,12 @@ const AboutSection = () => {
                   <p className="text-sm text-muted-foreground mb-2">Solution Architect at Sunrise Apps</p>
                   <div className="flex items-center gap-2">
                     <Badge variant="secondary" className="text-xs">Author</Badge>
-                    <a 
-                      href="https://www.linkedin.com/in/titulus/" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/titulus/"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-xs text-primary hover:underline"
+                      onClick={() => handleOutboundLinkClick('LinkedIn Kuntsevich Andrei', 'https://www.linkedin.com/in/titulus/')}
                     >
                       <Linkedin className="w-3 h-3 mr-1" />
                       titulus
@@ -92,11 +117,12 @@ const AboutSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Partnerships:</p>
-                    <a 
-                      href="https://www.linkedin.com/in/vladkarm/" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/vladkarm/"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-primary hover:underline"
+                      onClick={() => handleOutboundLinkClick('LinkedIn Vlad Karm', 'https://www.linkedin.com/in/vladkarm/')}
                     >
                       <Linkedin className="w-4 h-4 mr-2" />
                       Vlad Karm (CEO)
@@ -121,19 +147,20 @@ const AboutSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-primary hover:underline"
+                    onClick={() => handleOutboundLinkClick('GitHub Repo', 'https://github.com/sunriseapps/imagesorcery-mcp')}
                   >
                     <Github className="w-4 h-4 mr-2" />
                     sunriseapps/imagesorcery-mcp
                   </a>
-                  <div>
+                  <div onClick={handleStarButtonClick}>
                     <p className="text-sm text-muted-foreground mb-2">Show your support:</p>
-                    <a 
-                      className="github-button" 
-                      href="https://github.com/sunriseapps/imagesorcery-mcp" 
-                      data-color-scheme="no-preference: dark; light: dark; dark: dark;" 
+                    <a
+                      className="github-button"
+                      href="https://github.com/sunriseapps/imagesorcery-mcp"
+                      data-color-scheme="no-preference: dark; light: dark; dark: dark;"
                       data-icon="octicon-star"
-                      data-size="large" 
-                      data-show-count="true" 
+                      data-size="large"
+                      data-show-count="true"
                       aria-label="Star sunriseapps/imagesorcery-mcp on GitHub"
                     >
                       Star

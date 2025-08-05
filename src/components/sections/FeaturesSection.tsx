@@ -1,7 +1,20 @@
   import React from 'react';
   import { Eye, Target, Layers, Type, FileText, Workflow, Lock, Puzzle } from 'lucide-react';
+  import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+  import { trackEvent } from '@/lib/analytics';
+  import TrackedVideo from '../TrackedVideo';
 
   const FeaturesSection = () => {
+    const sectionRef = useIntersectionObserver(
+      () => {
+        trackEvent('section_view', {
+          section_id: 'features',
+          section_title: 'Core Features',
+        });
+      },
+      { threshold: 0.25, once: true }
+    );
+
     const features = [
       {
         icon: <Eye className="w-8 h-8" />,
@@ -54,7 +67,7 @@
     ];
 
     return (
-      <section id="features" className="py-20 relative z-10">
+      <section ref={sectionRef} id="features" className="py-20 relative z-10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -75,7 +88,7 @@
                           </div>
                           <h3 className="text-2xl font-bold">{feature.title}</h3>
                         </div>
-                        <p 
+                        <p
                           className="text-muted-foreground leading-relaxed text-lg text-center"
                           dangerouslySetInnerHTML={{ __html: feature.description }}
                         />
@@ -92,7 +105,7 @@
                           </div>
                           <h3 className="text-2xl font-bold">{feature.title}</h3>
                         </div>
-                        <p 
+                        <p
                           className="text-muted-foreground leading-relaxed text-lg mb-4"
                           dangerouslySetInnerHTML={{ __html: feature.description }}
                         />
@@ -108,16 +121,11 @@
                     <div className="flex-1">
                       <div className="aspect-video bg-muted rounded-xl flex items-center justify-center glass-card hover-glow transition-all duration-300 overflow-hidden">
                         {feature.demoVideo ? (
-                          <video 
-                            src={feature.demoVideo} 
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="w-full h-full object-cover"
-                          >
-                            Your browser does not support the video tag.
-                          </video>
+                          <TrackedVideo
+                            src={feature.demoVideo}
+                            videoName={feature.demoVideo}
+                            featureTitle={feature.title}
+                          />
                         ) : (
                           <div className="text-center">
                             <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto">

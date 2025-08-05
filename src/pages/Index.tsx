@@ -10,6 +10,7 @@ import PlatformsSection from '@/components/sections/PlatformsSection';
 import AboutSection from '@/components/sections/AboutSection';
 import FooterSection from '@/components/sections/FooterSection';
 import CookieConsent from '@/components/CookieConsent';
+import { trackEvent } from '@/lib/analytics';
 
 const Index = () => {
   const [copiedStates, setCopiedStates] = useState<{ [key: string]: boolean }>({});
@@ -20,6 +21,11 @@ const Index = () => {
     setTimeout(() => {
       setCopiedStates(prev => ({ ...prev, [key]: false }));
     }, 2000);
+
+    trackEvent('code_copy', {
+      method: 'button_click',
+      code_block_id: key,
+    });
   };
 
   return (

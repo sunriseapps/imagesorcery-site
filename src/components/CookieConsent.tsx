@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,18 +10,18 @@ const CookieConsent = () => {
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
-    
+
     const handleScroll = () => {
       const heroHeight = window.innerHeight;
       const scrollTop = window.scrollY;
-      
+
       if (scrollTop > heroHeight * 0.8) {
         setHasScrolledPastHero(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Show consent popup only if user hasn't made a choice AND has scrolled past hero
     if (consent === null && hasScrolledPastHero) {
       setIsVisible(true);
@@ -32,11 +33,13 @@ const CookieConsent = () => {
   const acceptCookies = () => {
     localStorage.setItem('cookie-consent', 'accepted');
     setIsVisible(false);
+    trackEvent('cookie_consent_accept', {});
   };
 
   const declineCookies = () => {
     localStorage.setItem('cookie-consent', 'declined');
     setIsVisible(false);
+    trackEvent('cookie_consent_decline', {});
   };
 
   if (!isVisible) return null;
@@ -48,7 +51,7 @@ const CookieConsent = () => {
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-2">Cookie Consent</h3>
             <p className="text-muted-foreground text-sm mb-4">
-              We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. 
+              We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.
               By clicking "Accept All", you consent to our use of cookies.
             </p>
             <div className="flex gap-3">

@@ -1,34 +1,51 @@
 
 import React, { useState } from 'react';
-import { Play, Star } from 'lucide-react';
+import { Play } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { trackEvent } from '@/lib/analytics';
 
 const VideoSection = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoId = 'cXIGq4Rah3I';
 
+  const sectionRef = useIntersectionObserver(
+    () => {
+      trackEvent('section_view', {
+        section_id: 'video',
+        section_title: 'Demo Video',
+      });
+    },
+    { threshold: 0.25, once: true }
+  );
+
   const handlePlayVideo = () => {
+    trackEvent('video_play', {
+      video_source: 'youtube',
+      video_id: videoId,
+      trigger_method: 'click_preview',
+    });
     setIsVideoPlaying(true);
   };
 
   return (
-    <section className="py-20 bg-gradient-glow relative z-10">
+    <section ref={sectionRef} id="video" className="py-20 bg-gradient-glow relative z-10">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <div className="max-w-4xl mx-auto">
             <div className="aspect-video bg-muted rounded-xl relative overflow-hidden group cursor-pointer glow-effect hover:animate-video-glow transition-all duration-300">
               {!isVideoPlaying ? (
                 <>
-                  <img 
+                  <img
                     src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
                     alt="ImageSorcery Demo Video"
                     className="w-full h-full object-cover rounded-xl"
                     onClick={handlePlayVideo}
                     onError={(e) => {
-                      e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+                      e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
                     }}
                   />
                   {/* Play button overlay */}
-                  <div 
+                  <div
                     className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all duration-300 rounded-xl"
                     onClick={handlePlayVideo}
                   >

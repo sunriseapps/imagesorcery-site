@@ -1,6 +1,18 @@
 import React from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { trackEvent } from '@/lib/analytics';
 
 const PlatformsSection = () => {
+  const sectionRef = useIntersectionObserver(
+    () => {
+      trackEvent('section_view', {
+        section_id: 'platforms',
+        section_title: 'Verified on Leading MCP Platforms',
+      });
+    },
+    { threshold: 0.25, once: true }
+  );
+
   const platforms = [
     {
       name: 'Visual Studio Code',
@@ -54,15 +66,23 @@ const PlatformsSection = () => {
     }
   ];
 
+  const handleOutboundLinkClick = (name: string, url: string) => {
+    trackEvent('outbound_link_click', {
+      section: 'platforms',
+      link_name: name,
+      link_url: url,
+    });
+  };
+
   return (
-    <section id="platforms" className="relative py-24 overflow-hidden">
+    <section ref={sectionRef} id="platforms" className="relative py-24 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
             Verified on Leading MCP Platforms
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            ImageSorcery MCP is trusted and listed across prominent MCP directories and AI client platforms. 
+            ImageSorcery MCP is trusted and listed across prominent MCP directories and AI client platforms.
             Click on any logo to explore our listing.
           </p>
         </div>
@@ -78,6 +98,7 @@ const PlatformsSection = () => {
               style={{
                 animationDelay: `${index * 100}ms`
               }}
+              onClick={() => handleOutboundLinkClick(platform.name, platform.url)}
             >
               <div className="w-full h-full flex items-center justify-center">
                 <img
@@ -86,10 +107,10 @@ const PlatformsSection = () => {
                   className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
                 />
               </div>
-              
+
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300" />
-              
+
               {/* Platform name tooltip */}
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 translate-y-full opacity-0 group-hover:opacity-100 transition-all duration-300 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-lg text-sm font-medium whitespace-nowrap">
                 {platform.name}

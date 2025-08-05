@@ -1,8 +1,10 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { CheckCircle } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import CodeBlock from '@/components/CodeBlock';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { trackEvent } from '@/lib/analytics';
 
 interface GettingStartedSectionProps {
   copiedStates: { [key: string]: boolean };
@@ -10,6 +12,16 @@ interface GettingStartedSectionProps {
 }
 
 const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedStates, onCopy }) => {
+  const sectionRef = useIntersectionObserver(
+    () => {
+      trackEvent('section_view', {
+        section_id: 'getting-started',
+        section_title: 'Getting Started',
+      });
+    },
+    { threshold: 0.25, once: true }
+  );
+
   const agenticSetupCode = `1. Load MCP documentation if you have the tool for it. It will give you path to *MCP-configuration file* and other needed instructions.
 2. Run command \`python -m venv imagesorcery-mcp\`
 3. Run command \`source imagesorcery-mcp/bin/activate\`
@@ -24,7 +36,7 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
 9. Attempt completion, indicating that the installation and configuration are complete.`;
 
   return (
-    <section id="getting-started" className="py-20 bg-gradient-glow relative z-10">
+    <section ref={sectionRef} id="getting-started" className="py-20 bg-gradient-glow relative z-10">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Getting Started</h2>
@@ -61,7 +73,16 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
               Setup
             </h3>
 
-            <Tabs defaultValue="agentic" className="w-full">
+            <Tabs
+              defaultValue="agentic"
+              className="w-full"
+              onValueChange={(value) =>
+                trackEvent('tab_select', {
+                  tab_group: 'setup_method',
+                  selected_tab: value,
+                })
+              }
+            >
               <TabsList className="grid w-full grid-cols-2 mb-8">
                 <TabsTrigger value="agentic">Agentic</TabsTrigger>
                 <TabsTrigger value="manual">Manual</TabsTrigger>
@@ -75,9 +96,9 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
                   <CodeBlock
                     code={agenticSetupCode}
                     language="bash"
-                    copyKey="agentic"
                     copiedStates={copiedStates}
                     onCopy={onCopy}
+                    codeBlockId="agentic"
                   />
                   <p className="text-sm text-muted-foreground mt-4">
                     Copy this entire block and paste it into your AI agent's chat interface.
@@ -91,7 +112,16 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
                     For direct control or if your AI client requires manual configuration, follow these steps to install ImageSorcery and configure your MCP client.
                   </p>
 
-                  <Tabs defaultValue="linux" className="w-full">
+                  <Tabs
+                    defaultValue="linux"
+                    className="w-full"
+                    onValueChange={(value) =>
+                      trackEvent('tab_select', {
+                        tab_group: 'os_instructions',
+                        selected_tab: value,
+                      })
+                    }
+                  >
                     <TabsList className="grid w-full grid-cols-2 mb-6">
                       <TabsTrigger value="linux">Linux / macOS</TabsTrigger>
                       <TabsTrigger value="windows">Windows</TabsTrigger>
@@ -111,7 +141,7 @@ pip install imagesorcery-mcp
 # 3. Run the crucial post-installation script (downloads models & sets up CLIP)
 imagesorcery-mcp --post-install`}
                           language="bash"
-                          copyKey="linux-install"
+                          codeBlockId="linux-install"
                           copiedStates={copiedStates}
                           onCopy={onCopy}
                         />
@@ -135,7 +165,7 @@ imagesorcery-mcp --post-install`}
   }
 }`}
                           language="json"
-                          copyKey="linux-config"
+                          codeBlockId="linux-config"
                           copiedStates={copiedStates}
                           onCopy={onCopy}
                         />
@@ -158,7 +188,7 @@ pip install imagesorcery-mcp
 # 3. Run the crucial post-installation script (downloads models & sets up CLIP)
 imagesorcery-mcp --post-install`}
                           language="bash"
-                          copyKey="windows-install"
+                          codeBlockId="windows-install"
                           copiedStates={copiedStates}
                           onCopy={onCopy}
                         />
@@ -182,7 +212,7 @@ imagesorcery-mcp --post-install`}
   }
 }`}
                           language="json"
-                          copyKey="windows-config"
+                          codeBlockId="windows-config"
                           copiedStates={copiedStates}
                           onCopy={onCopy}
                         />
