@@ -105,13 +105,21 @@ const AboutSection = () => {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-muted-foreground">General Inquiries:</p>
-                    <a href="mailto:team@sunrise-apps.com" className="text-primary hover:underline">
+                    <a
+                      href="mailto:team@sunrise-apps.com"
+                      className="text-primary hover:underline"
+                      onClick={() => handleOutboundLinkClick('Email General Inquiries', 'mailto:team@sunrise-apps.com')}
+                    >
                       team@sunrise-apps.com
                     </a>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Enterprise Deployment:</p>
-                    <a href="mailto:sales@sunrise-apps.com" className="text-primary hover:underline">
+                    <a
+                      href="mailto:sales@sunrise-apps.com"
+                      className="text-primary hover:underline"
+                      onClick={() => handleOutboundLinkClick('Email Enterprise Deployment', 'mailto:sales@sunrise-apps.com')}
+                    >
                       sales@sunrise-apps.com
                     </a>
                   </div>
