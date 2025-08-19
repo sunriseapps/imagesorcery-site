@@ -23,17 +23,13 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
   );
 
   const agenticSetupCode = `1. Load MCP documentation if you have the tool for it. It will give you path to *MCP-configuration file* and other needed instructions.
-2. Run command \`python -m venv imagesorcery-mcp\`
-3. Run command \`source imagesorcery-mcp/bin/activate\`
-   For windows bash run command \`source imagesorcery-mcp/Scripts/activate\`
-   For windows cmd run command \`imagesorcery-mcp\\Scripts\\activate\`
-4. Run command \`pip install imagesorcery-mcp\`
-5. Run command \`imagesorcery-mcp --post-install\`
-6. Create or modify *MCP-configuration file*.
-7. Add the \`imagesorcery-mcp\` server configuration to the \`mcpServers\` object in the *MCP-configuration file*
-   \`"imagesorcery-mcp": {"command": "/full/path/to/venv/bin/imagesorcery-mcp","timeout": 100}\`
-8. Get available models using \`models://list\` resource from \`imagesorcery-mcp\`
-9. Attempt completion, indicating that the installation and configuration are complete.`;
+2. Run command \`pipx install imagesorcery-mcp\`
+3. Run command \`imagesorcery-mcp --post-install\`
+4. Create or modify *MCP-configuration file*.
+5. Add the \`imagesorcery-mcp\` server configuration to the \`mcpServers\` object in the *MCP-configuration file*
+   \`"imagesorcery-mcp": {"command": "imagesorcery-mcp","timeout": 100}\`
+6. Access available models using \`models://list\` resource from \`imagesorcery-mcp\`
+7. Attempt completion, indicating that the installation and configuration are complete.`;
 
   return (
     <section ref={sectionRef} id="getting-started" className="py-20 bg-gradient-glow relative z-10">
@@ -53,6 +49,10 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                 <span>Python 3.10 or higher</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                <span>pipx (recommended) - for easy installation and virtual environment management</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
@@ -113,38 +113,96 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
                   </p>
 
                   <Tabs
-                    defaultValue="linux"
+                    defaultValue="pipx"
                     className="w-full"
                     onValueChange={(value) =>
                       trackEvent('tab_select', {
-                        tab_group: 'os_instructions',
+                        tab_group: 'installation_method',
                         selected_tab: value,
                       })
                     }
                   >
                     <TabsList className="grid w-full grid-cols-2 mb-6">
-                      <TabsTrigger value="linux">Linux / macOS</TabsTrigger>
-                      <TabsTrigger value="windows">Windows</TabsTrigger>
+                      <TabsTrigger value="pipx">pipx (Recommended)</TabsTrigger>
+                      <TabsTrigger value="manual-venv">Manual Virtual Environment</TabsTrigger>
                     </TabsList>
 
-                    <TabsContent value="linux" className="space-y-6">
+                    <TabsContent value="pipx" className="space-y-6">
                       <div>
-                        <h4 className="text-lg font-semibold mb-4">Installation</h4>
-                        <CodeBlock
-                          code={`# 1. Create and activate a virtual environment (Recommended)
-python -m venv imagesorcery-mcp
-source imagesorcery-mcp/bin/activate
+                        <h4 className="text-lg font-semibold mb-4">Installation with pipx (Recommended)</h4>
+                        <p className="text-muted-foreground mb-4">
+                          pipx automatically handles virtual environment creation and management, making the installation process much simpler.
+                        </p>
 
-# 2. Install ImageSorcery MCP
-pip install imagesorcery-mcp
+                        <Tabs
+                          defaultValue="macos"
+                          className="w-full"
+                          onValueChange={(value) =>
+                            trackEvent('tab_select', {
+                              tab_group: 'pipx_install_os',
+                              selected_tab: value,
+                            })
+                          }
+                        >
+                          <TabsList className="grid w-full grid-cols-3 mb-4">
+                            <TabsTrigger value="macos">macOS</TabsTrigger>
+                            <TabsTrigger value="linux">Linux</TabsTrigger>
+                            <TabsTrigger value="windows">Windows</TabsTrigger>
+                          </TabsList>
+
+                          <TabsContent value="macos">
+                            <CodeBlock
+                              code={`# 1. Install pipx (if not already installed)
+brew install pipx
+
+# 2. Install ImageSorcery MCP with pipx
+pipx install imagesorcery-mcp
 
 # 3. Run the crucial post-installation script (downloads models & sets up CLIP)
 imagesorcery-mcp --post-install`}
-                          language="bash"
-                          codeBlockId="linux-install"
-                          copiedStates={copiedStates}
-                          onCopy={onCopy}
-                        />
+                              language="bash"
+                              codeBlockId="pipx-install-macos"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="linux">
+                            <CodeBlock
+                              code={`# 1. Install pipx (if not already installed)
+sudo apt update && sudo apt install pipx
+
+# 2. Install ImageSorcery MCP with pipx
+pipx install imagesorcery-mcp
+
+# 3. Run the crucial post-installation script (downloads models & sets up CLIP)
+imagesorcery-mcp --post-install`}
+                              language="bash"
+                              codeBlockId="pipx-install-linux"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="windows">
+                            <CodeBlock
+                              code={`# 1. Install pipx (if not already installed)
+pip install --user pipx
+pipx ensurepath
+
+# 2. Install ImageSorcery MCP with pipx
+pipx install imagesorcery-mcp
+
+# 3. Run the crucial post-installation script (downloads models & sets up CLIP)
+imagesorcery-mcp.exe --post-install`}
+                              language="bash"
+                              codeBlockId="pipx-install-windows"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+                        </Tabs>
+
                         <div className="mt-4 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
                           <p className="text-yellow-400 text-sm">
                             <strong>Important:</strong> The --post-install step downloads essential models and configures critical components. Don't skip it!
@@ -154,29 +212,146 @@ imagesorcery-mcp --post-install`}
 
                       <div>
                         <h4 className="text-lg font-semibold mb-4">Configure Your MCP Client</h4>
-                        <CodeBlock
-                          code={`{
+                        <p className="text-muted-foreground mb-4">For pipx installation, use the simple command name:</p>
+
+                        <Tabs
+                          defaultValue="macos-config"
+                          className="w-full"
+                          onValueChange={(value) =>
+                            trackEvent('tab_select', {
+                              tab_group: 'pipx_config_os',
+                              selected_tab: value,
+                            })
+                          }
+                        >
+                          <TabsList className="grid w-full grid-cols-3 mb-4">
+                            <TabsTrigger value="macos-config">macOS</TabsTrigger>
+                            <TabsTrigger value="linux-config">Linux</TabsTrigger>
+                            <TabsTrigger value="windows-config">Windows</TabsTrigger>
+                          </TabsList>
+
+                          <TabsContent value="macos-config">
+                            <CodeBlock
+                              code={`{
   "mcpServers": {
     "imagesorcery-mcp": {
-      "command": "/full/path/to/venv/bin/imagesorcery-mcp",
+      "command": "imagesorcery-mcp",
       "transportType": "stdio",
+      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
 }`}
-                          language="json"
-                          codeBlockId="linux-config"
-                          copiedStates={copiedStates}
-                          onCopy={onCopy}
-                        />
+                              language="json"
+                              codeBlockId="pipx-config-macos"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="linux-config">
+                            <CodeBlock
+                              code={`{
+  "mcpServers": {
+    "imagesorcery-mcp": {
+      "command": "imagesorcery-mcp",
+      "transportType": "stdio",
+      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "timeout": 100
+    }
+  }
+}`}
+                              language="json"
+                              codeBlockId="pipx-config-linux"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="windows-config">
+                            <CodeBlock
+                              code={`{
+  "mcpServers": {
+    "imagesorcery-mcp": {
+      "command": "imagesorcery-mcp.exe",
+      "transportType": "stdio",
+      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "timeout": 100
+    }
+  }
+}`}
+                              language="json"
+                              codeBlockId="pipx-config-windows"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+                        </Tabs>
                       </div>
                     </TabsContent>
 
-                    <TabsContent value="windows" className="space-y-6">
+                    <TabsContent value="manual-venv" className="space-y-6">
                       <div>
-                        <h4 className="text-lg font-semibold mb-4">Installation</h4>
-                        <CodeBlock
-                          code={`# 1. Create and activate a virtual environment (Recommended)
+                        <h4 className="text-lg font-semibold mb-4">Manual Virtual Environment (Plan B)</h4>
+                        <p className="text-muted-foreground mb-4">
+                          If pipx doesn't work for your system, you can manually create a virtual environment. For reliable installation of all components, it is strongly recommended to use Python's built-in venv module.
+                        </p>
+
+                        <Tabs
+                          defaultValue="macos-manual"
+                          className="w-full"
+                          onValueChange={(value) =>
+                            trackEvent('tab_select', {
+                              tab_group: 'manual_venv_os',
+                              selected_tab: value,
+                            })
+                          }
+                        >
+                          <TabsList className="grid w-full grid-cols-3 mb-4">
+                            <TabsTrigger value="macos-manual">macOS</TabsTrigger>
+                            <TabsTrigger value="linux-manual">Linux</TabsTrigger>
+                            <TabsTrigger value="windows-manual">Windows</TabsTrigger>
+                          </TabsList>
+
+                          <TabsContent value="macos-manual">
+                            <CodeBlock
+                              code={`# 1. Create and activate a virtual environment
+python -m venv imagesorcery-mcp
+source imagesorcery-mcp/bin/activate
+
+# 2. Install ImageSorcery MCP
+pip install imagesorcery-mcp
+
+# 3. Run the crucial post-installation script (downloads models & sets up CLIP)
+imagesorcery-mcp --post-install`}
+                              language="bash"
+                              codeBlockId="macos-manual-install"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="linux-manual">
+                            <CodeBlock
+                              code={`# 1. Create and activate a virtual environment
+python -m venv imagesorcery-mcp
+source imagesorcery-mcp/bin/activate
+
+# 2. Install ImageSorcery MCP
+pip install imagesorcery-mcp
+
+# 3. Run the crucial post-installation script (downloads models & sets up CLIP)
+imagesorcery-mcp --post-install`}
+                              language="bash"
+                              codeBlockId="linux-manual-install"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="windows-manual">
+                            <CodeBlock
+                              code={`# 1. Create and activate a virtual environment
 python -m venv imagesorcery-mcp
 imagesorcery-mcp\\Scripts\\activate # For Windows Cmd
 # OR, for Windows Bash:
@@ -186,12 +361,15 @@ imagesorcery-mcp\\Scripts\\activate # For Windows Cmd
 pip install imagesorcery-mcp
 
 # 3. Run the crucial post-installation script (downloads models & sets up CLIP)
-imagesorcery-mcp --post-install`}
-                          language="bash"
-                          codeBlockId="windows-install"
-                          copiedStates={copiedStates}
-                          onCopy={onCopy}
-                        />
+imagesorcery-mcp.exe --post-install`}
+                              language="bash"
+                              codeBlockId="windows-manual-install"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+                        </Tabs>
+
                         <div className="mt-4 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
                           <p className="text-yellow-400 text-sm">
                             <strong>Important:</strong> The --post-install step downloads essential models and configures critical components. Don't skip it!
@@ -201,21 +379,83 @@ imagesorcery-mcp --post-install`}
 
                       <div>
                         <h4 className="text-lg font-semibold mb-4">Configure Your MCP Client</h4>
-                        <CodeBlock
-                          code={`{
+                        <p className="text-muted-foreground mb-4">
+                          When using manual virtual environment, you'll need to provide the full path to the executable:
+                        </p>
+
+                        <Tabs
+                          defaultValue="macos-manual-config"
+                          className="w-full"
+                          onValueChange={(value) =>
+                            trackEvent('tab_select', {
+                              tab_group: 'manual_config_os',
+                              selected_tab: value,
+                            })
+                          }
+                        >
+                          <TabsList className="grid w-full grid-cols-3 mb-4">
+                            <TabsTrigger value="macos-manual-config">macOS</TabsTrigger>
+                            <TabsTrigger value="linux-manual-config">Linux</TabsTrigger>
+                            <TabsTrigger value="windows-manual-config">Windows</TabsTrigger>
+                          </TabsList>
+
+                          <TabsContent value="macos-manual-config">
+                            <CodeBlock
+                              code={`{
   "mcpServers": {
     "imagesorcery-mcp": {
-      "command": "C:\\\\full\\\\path\\\\to\\\\venv\\\\Scripts\\\\imagesorcery-mcp.exe",
+      "command": "/full/path/to/venv/bin/imagesorcery-mcp",
       "transportType": "stdio",
+      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
 }`}
-                          language="json"
-                          codeBlockId="windows-config"
-                          copiedStates={copiedStates}
-                          onCopy={onCopy}
-                        />
+                              language="json"
+                              codeBlockId="macos-manual-config"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="linux-manual-config">
+                            <CodeBlock
+                              code={`{
+  "mcpServers": {
+    "imagesorcery-mcp": {
+      "command": "/full/path/to/venv/bin/imagesorcery-mcp",
+      "transportType": "stdio",
+      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "timeout": 100
+    }
+  }
+}`}
+                              language="json"
+                              codeBlockId="linux-manual-config"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+
+                          <TabsContent value="windows-manual-config">
+                            <CodeBlock
+                              code={`{
+  "mcpServers": {
+    "imagesorcery-mcp": {
+      "command": "C:\\\\full\\\\path\\\\to\\\\venv\\\\Scripts\\\\imagesorcery-mcp.exe",
+      "transportType": "stdio",
+      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "timeout": 100
+    }
+  }
+}`}
+                              language="json"
+                              codeBlockId="windows-manual-config"
+                              copiedStates={copiedStates}
+                              onCopy={onCopy}
+                            />
+                          </TabsContent>
+                        </Tabs>
                       </div>
                     </TabsContent>
                   </Tabs>
