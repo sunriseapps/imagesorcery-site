@@ -237,7 +237,7 @@ imagesorcery-mcp.exe --post-install`}
     "imagesorcery-mcp": {
       "command": "imagesorcery-mcp",
       "transportType": "stdio",
-      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "autoApprove": ["blur", "change_color", "config", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
@@ -256,7 +256,7 @@ imagesorcery-mcp.exe --post-install`}
     "imagesorcery-mcp": {
       "command": "imagesorcery-mcp",
       "transportType": "stdio",
-      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "autoApprove": ["blur", "change_color", "config", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
@@ -275,7 +275,7 @@ imagesorcery-mcp.exe --post-install`}
     "imagesorcery-mcp": {
       "command": "imagesorcery-mcp.exe",
       "transportType": "stdio",
-      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "autoApprove": ["blur", "change_color", "config", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
@@ -406,7 +406,7 @@ imagesorcery-mcp.exe --post-install`}
     "imagesorcery-mcp": {
       "command": "/full/path/to/venv/bin/imagesorcery-mcp",
       "transportType": "stdio",
-      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "autoApprove": ["blur", "change_color", "config", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
@@ -425,7 +425,7 @@ imagesorcery-mcp.exe --post-install`}
     "imagesorcery-mcp": {
       "command": "/full/path/to/venv/bin/imagesorcery-mcp",
       "transportType": "stdio",
-      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "autoApprove": ["blur", "change_color", "config", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
@@ -444,7 +444,7 @@ imagesorcery-mcp.exe --post-install`}
     "imagesorcery-mcp": {
       "command": "C:\\\\full\\\\path\\\\to\\\\venv\\\\Scripts\\\\imagesorcery-mcp.exe",
       "transportType": "stdio",
-      "autoApprove": ["blur", "change_color", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
+      "autoApprove": ["blur", "change_color", "config", "crop", "detect", "draw_arrows", "draw_circles", "draw_lines", "draw_rectangles", "draw_texts", "fill", "find", "get_metainfo", "ocr", "overlay", "resize", "rotate"],
       "timeout": 100
     }
   }
