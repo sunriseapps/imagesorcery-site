@@ -123,8 +123,8 @@ const GettingStartedSection: React.FC<GettingStartedSectionProps> = ({ copiedSta
                     }
                   >
                     <TabsList className="grid w-full grid-cols-2 mb-6">
-                      <TabsTrigger value="pipx">pipx (Recommended)</TabsTrigger>
-                      <TabsTrigger value="manual-venv">Manual Virtual Environment</TabsTrigger>
+                      <TabsTrigger value="pipx">pipx</TabsTrigger>
+                      <TabsTrigger value="manual-venv">pip</TabsTrigger>
                     </TabsList>
 
                     <TabsContent value="pipx" className="space-y-6">
