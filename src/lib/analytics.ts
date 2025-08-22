@@ -1,5 +1,12 @@
 // src/lib/analytics.ts
 
+// Extend Window interface to include gtag
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 /**
  * A centralized function for tracking GA4 events.
  * It checks for the existence of window.gtag to avoid errors in environments
