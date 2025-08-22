@@ -23,7 +23,7 @@ const PrivacySection: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold">Privacy & Telemetry</h2>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            We are committed to your privacy. ImageSorcery MCP runs locally, ensuring your data stays secure.
+            We are committed to your privacy. ImageSorcery MCP runs locally, ensuring your data stays secure. 🙏 Please help us improve ImageSorcery MCP by opting into anonymous telemetry.
           </p>
         </div>
 
